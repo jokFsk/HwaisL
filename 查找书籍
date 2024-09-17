@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+typedef struct books
+{
+    char name[31];
+    double value;
+}bs;
+int main()
+{
+    int n;
+    double max,min;
+    int n1=0,n2=0;
+    scanf("%d\n",&n);
+    bs arr[n];
+    bs *p;
+    for(int i=0;i<n;i++)
+    {
+		if(i<n-1)
+		{
+            gets(arr[i].name);
+            scanf("%lf\n",&arr[i].value);
+		}
+		else
+		{
+            gets(arr[i].name);
+            scanf("%lf",&arr[i].value);
+		}
+	}
+    max=arr[0].value;
+    min=arr[0].value;
+    for(int i=0;i<n;i++)
+    {
+        if(max<arr[i].value)
+        {
+            max=arr[i].value;
+            n1=i;
+        }
+        if(min>arr[i].value)
+        {
+            min=arr[i].value;
+            n2=i;
+        }
+    }
+    printf("%.2lf, %s\n",arr[n1].value,arr[n1].name);
+    printf("%.2lf, %s",arr[n2].value,arr[n2].name);
+    return 0;
+}
+
